@@ -1,14 +1,13 @@
 import React from 'react'
-import { ToDo } from '../src/compornents/ToDo'
-import { withKnobs, text } from '@storybook/addon-knobs/react'
 
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { linkTo } from '@storybook/addon-links'
 
-const stories = storiesOf('Sample', module)
-stories.addDecorator(withKnobs)
+import { Button, Welcome } from '@storybook/react/demo'
 
-stories.add('show hello', name => {
-  const inputName = text('Name', 'りねっと')
+storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
 
-  return <ToDo title={inputName} days={1} key={1} />
-})
+storiesOf('Button', module)
+  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
+  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>)
