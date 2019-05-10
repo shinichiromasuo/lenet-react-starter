@@ -26,9 +26,12 @@ class ToDo extends React.Component<Props, any> {
     return (
       <div>
         {this.props.toDoList.map((item, index) => (
-          <div key={index}>
+          <div className="ToDo__item" key={index}>
             Days: {item.days} Title: {item.title}
-            <button onClick={this.handleTitleDelete(index)}>delete</button>
+            <div style={{ flexGrow: 1 }} />
+            <button className="Button" onClick={this.handleTitleDelete(index)}>
+              delete
+            </button>
           </div>
         ))}
       </div>

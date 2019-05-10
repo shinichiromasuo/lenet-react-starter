@@ -18,8 +18,8 @@ class ContainerComponent extends React.Component<Props, State> {
   }
   render() {
     return (
-      <div className="Parent">
-        <div className="App">
+      <div className="App">
+        <div className="App__header">
           <InputToDo
             addToDo={toDo =>
               this.setState(state => ({
@@ -28,7 +28,7 @@ class ContainerComponent extends React.Component<Props, State> {
             }
           />
         </div>
-        <div>
+        <div className="ToDo">
           <ToDo
             deleteToDo={index =>
               this.setState(state => ({

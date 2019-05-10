@@ -16,19 +16,14 @@ class InputToDo extends React.Component<Props, any> {
     title: '',
     days: 0
   }
-  constructor(props: Props) {
-    super(props)
-    ;(this: any).handleTitleChange = this.handleTitleChange.bind(this)
-    ;(this: any).handleDaysIncrement = this.handleDaysIncrement.bind(this)
-    ;(this: any).handleDaysDecrement = this.handleDaysDecrement.bind(this)
-    ;(this: any).handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleTitleChange(event: any) {
+  handleTitleChange = (event: any) => {
     this.setState({ title: event.target.value })
   }
 
-  handleSubmit(event: MouseEventHandler) {
+  handleSubmit = (event: MouseEventHandler) => {
+    this.setState(state => ({
+      title: (state.title = '')
+    }))
     const { addToDo } = this.props
     event.preventDefault()
     addToDo({
@@ -37,15 +32,15 @@ class InputToDo extends React.Component<Props, any> {
     })
   }
 
-  handleDaysIncrement() {
+  handleDaysIncrement = () => {
     this.setState(state => ({
       days: state.days + 1
     }))
   }
 
-  handleDaysDecrement() {
+  handleDaysDecrement = () => {
     this.setState(state => ({
-      days: state.days - 1
+      days: state.days + (state.days > 0 ? -1 : 0)
     }))
   }
 
