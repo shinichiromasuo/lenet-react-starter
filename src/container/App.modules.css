@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  outline: #61dafb;
+  padding: 10px;
+  border: darkgrey;
+  box-shadow: 1px 1px 1px 1px #61dafb;
+}
+
+.App__header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 1px 1px 1px 1px #282c34;
+}
